@@ -1,0 +1,24 @@
+public Map<Integer, Integer> getLimitOffset(Integer page, Integer recordCount) {
+    Integer limit = 0;
+    Integer offset = 0;
+
+    boolean flag = false;
+    Map<Integer, Integer> offsetLimitMap = new HashMap<>();
+    for (Integer i = 1; i <= page; i++) {
+        if (flag) {
+
+            limit = recordCount;
+            offset = offset + recordCount;
+
+
+        } else {
+
+            limit = recordCount;
+            offset = offset;
+            flag = true;
+        }
+    }
+
+    offsetLimitMap.put(offset,limit);
+    return offsetLimitMap;
+}
